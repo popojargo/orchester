@@ -1,0 +1,27 @@
+{
+  "connectors": {
+    "g_drive": {
+      "credential_path": "",
+      "file_id": "",
+      "token_path": ""
+    },
+    "github": {
+      "org_id": "",
+      "token": ""
+    },
+    "slack": {
+      "client_id": "",
+      "legacy_token": "",
+      "secret": "",
+      "token": ""
+    },
+    "trello": {
+      "api_key": "",
+      "api_secret": "",
+      "team_id": "",
+      "token": "",
+      "token_secret": ""
+    }
+  },
+  "default_connector": ""
+}

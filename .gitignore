@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.idea/
+!.idea/encodings.xml
+!.idea/modules.xml
+
+# Tokens
+google_drive_*.json
+.orchester.json
