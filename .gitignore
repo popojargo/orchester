@@ -109,3 +109,4 @@ venv.bak/
 
 # Tokens
 google_drive_*.json
+.orchester.json

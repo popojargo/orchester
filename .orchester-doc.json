@@ -1,0 +1,27 @@
+{
+  "default_connector": "This can be any of the <connectors> keys. Ex: trello",
+  "connectors": {
+    "trello": {
+      "api_key": "Your Trello api key",
+      "api_secret": "Your Trello api key",
+      "token": "Your OAuth token",
+      "token_secret": "Your OAuth token secret",
+      "team_id": "[CLI] The team identifier to manage"
+    },
+    "slack": {
+      "token": "The Slack token that you generated",
+      "legacy_token": "The legacy Slack token",
+      "client_id": "[CLI] The client id. It's used only if you need to generate a token from our tools. You should create a Slack App and use your client id.",
+      "secret": "[CLI] The slack secret if you need to generate a OAuth token from our tools. You should create a Slack App and use your app secret."
+    },
+    "github": {
+      "token": "You Github OAuth token",
+      "org_id": "[CLI]The team identifier to manage"
+    },
+    "g_drive": {
+      "credential_path": "Path to your credentials.json file.",
+      "token_path": "Path to your token.json path.",
+      "file_id": "[CLI]The Google Drive file to manage permissions by default"
+    }
+  }
+}
