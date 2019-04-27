@@ -1,6 +1,6 @@
 # orchester
 
-[![PyPI version](https://badge.fury.io/py/orchester.svg)](https://badge.fury.io/py/orchester)https://img.shields.io/pypi/dm/orchester.svg
+[![PyPI version](https://badge.fury.io/py/orchester.svg)](https://badge.fury.io/py/orchester)![PyPI downloads](https://img.shields.io/pypi/dm/orchester.svg)
 
 This is a python set of tools to easily manage membership of users to your preferred cloud services.
 
