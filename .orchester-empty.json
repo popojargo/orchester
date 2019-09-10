@@ -11,8 +11,8 @@
     },
     "slack": {
       "client_id": "",
+      "client_secret": "",
       "legacy_token": "",
-      "secret": "",
       "token": ""
     },
     "trello": {

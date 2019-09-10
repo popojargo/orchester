@@ -21,11 +21,18 @@ Install the package with `pip install orchester`
 
 If you want on using the command line interface, you must define some configurations.
 
-Configuration is done through a `.orchester.json` configuration file. You can see a template here: [.orchester.json](.orchester-doc.json)
+## Configuration
 
-The configuration file must be either:
+Configuration is done through a `.orchester.json` configuration file. 
+You can see a documented template here: [.orchester-doc.json](.orchester-doc.json)
+The values labeled by `[CLI]` are only required for the CLI.
 
-- Path is defined in the **ORCHESTER_CONFIG_PATH** environment variable.
+>**Note**: An empty template is available here: [.orchester.json](.orchester-empty.json)
+
+
+The application will attempt to load from this following order:
+
+- A specific path defined in the **ORCHESTER_CONFIG_PATH** environment variable.
 - In the current working directory
 - In the user folder (home)
 
@@ -35,11 +42,10 @@ Orchester is distributed with a command line tool. Once installed, you can call 
 
 The following commands are available:
 
-- `orchest -c CONNECTOR_TYPE check IDENTIFIER`
-- `orchest -c CONNECTOR_TYPE add IDENTIFIER`
-- `orchest -c CONNECTOR_TYPE rm IDENTIFIER`
+- `orchest -c CONNECTOR_TYPE check IDENTIFIER`: Check if the user is registered to the organization
+- `orchest -c CONNECTOR_TYPE add IDENTIFIER` Add a user to the organization
+- `orchest -c CONNECTOR_TYPE rm IDENTIFIER`: Remove a user from the organization
 - `orchest generate CONNECTOR_TYPE`: Generates the OAuth credentials for connector.
-
 
 If you want to omit the `CONNECTOR_TYPE` for each command, you can set a default connector in your configuration file:
 
@@ -58,9 +64,10 @@ The connector_type must be **CONNECTOR** name of a valid connector. The connecto
 
 ---
 
-1. Get your API token and secret from https://trello.com/app-key
-2. Run `/bin/trello_token.py` script to get the credentials
-3. Set the OAuth token and OAuth secret in the .env file
+1. Get your API token and secret from https://trello.com/app-key (Look for the Api Key and OAuth secret)
+2. Add the Api Key and OAuth secret in the `.orchester.json` configuration file in **api_key** and **api_secret**.
+3. Run `orchest generate trello` script to get the credentials
+4. Set the OAuth token and OAuth secret in the configuration file in **token** and **token_secret**
 
 ---
 
@@ -76,7 +83,7 @@ To use the Github service, you need an Personal Token.
 
 Go on Github under `Settings > Developer settings > Personal access tokens`
 
-Then, create a new token and save it in your `.env` file.
+Then, create a new token and save it in your configuration file at **token**.
 
 
 ---
@@ -89,26 +96,36 @@ Then, create a new token and save it in your `.env` file.
 
 ---
 
-To get started with slack, you first need to get a legacy token and a oauth token.
+To get started with slack, you first need to get a legacy token and a OAuth token.
 
 **Legacy token**
 
 Simply go to the following url and issue a new legacy token: https://api.slack.com/custom-integrations/legacy-tokens
 
+You can then add the legacy token in **legacy_token**.
+
 >**Note**: You'll need to be connected to issue a token.
 
 **OAuth token**
 
-Since Slack use Oauth tokens, we have to do some operations.
+Before you can actually generate an OAuth token, you'll need to have a Slack application. 
 
-1. Start the `bin/slack_token.py` server.
+> **How to create an app?**: Go to https://api.slack.com/apps and click on *Create New App* <br />
+You must add the following permission scopes: **users:read** and **users:read.email** <br />
+You will also need to set the following Redirect URI: http://localhost:8888/finish_auth
+
+You can then store the client id and client secret in **client_id** and **client_secret**
+
+You are now all setup to generate the final OAuth token.
+
+1. Run `orchest generate slack`
 2. Go to: `http://localhost:8888/begin_auth`
 3. Click on "Add to slack"
+4. Click Authorize
+5. It should show a OAuth token. Save that in the configuration file at **token** 
 
 
-**Warnings**
-
-Since we are only using the FREE version, we can't use the api to remove a user.
+>**Warnings**: Free Slack users can't use the api to remove a user.
 
 --- 
 
@@ -126,8 +143,9 @@ You can get it by creating credentials in your Google Console API
 
 **Tutorial**: Tutorials coming from: https://developers.google.com/drive/api/v3/quickstart/python
 
-Once you have created your credential file, you can run `bin/gdrive_token.py` to create the `google_drive_token.json`
+Once you have the `credentials.json` file, you need to define the **credential_path** and **token_path**.
 
+After that, you can run `orchest generate g_drive` to create the `google_drive_token.json`.
 
 ## API
 

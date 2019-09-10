@@ -27,7 +27,7 @@ class ConnectorManager:
         self.default_connector = pick(config, 'default_connector')
         if pick(config, 'connectors'):
             for key, connector_cfg in config['connectors'].items():
-                if not key in SUPPORTED_CONNECTORS:
+                if key not in SUPPORTED_CONNECTORS:
                     continue
                 converted_key = ConnectorType(key)
                 self.connectors[converted_key] = self.create_connector(key, connector_cfg)

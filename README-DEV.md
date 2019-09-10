@@ -19,7 +19,10 @@ To build the project, do the following:
 
 2. TestPyPI upload: `twine upload --repository-url https://test.pypi.org/legacy/ dist/*`
 
+>**Note**: To test from TestPypi, run: `pip install --index-url https://test.pypi.org/simple/ orchester`
+
 3. PyPI upload: `twine upload dist/*`
+
 ## Generate empty config file
 
 To generate an empty configuration file based on the one with doc: `python bin/gen_cfg_file.py > .orchester-empty.json`

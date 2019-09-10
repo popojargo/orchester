@@ -2,17 +2,17 @@
   "default_connector": "This can be any of the <connectors> keys. Ex: trello",
   "connectors": {
     "trello": {
-      "api_key": "Your Trello api key",
-      "api_secret": "Your Trello api key",
-      "token": "Your OAuth token",
-      "token_secret": "Your OAuth token secret",
+      "api_key": "Your Trello develop Api key taken from the https://trello.com/app-key",
+      "api_secret": "Your Trello OAuth secret https://trello.com/app-key",
+      "token": "Your OAuth token from the OAuth authentication",
+      "token_secret": "Your OAuth token secret from the OAuth authentication",
       "team_id": "[CLI] The team identifier to manage"
     },
     "slack": {
       "token": "The Slack token that you generated",
-      "legacy_token": "The legacy Slack token",
+      "legacy_token": "The legacy Slack token available here: https://api.slack.com/custom-integrations/legacy-tokens",
       "client_id": "[CLI] The client id. It's used only if you need to generate a token from our tools. You should create a Slack App and use your client id.",
-      "secret": "[CLI] The slack secret if you need to generate a OAuth token from our tools. You should create a Slack App and use your app secret."
+      "client_secret": "[CLI] The slack secret if you need to generate a OAuth token from our tools. You should create a Slack App and use your app secret."
     },
     "github": {
       "token": "You Github OAuth token",

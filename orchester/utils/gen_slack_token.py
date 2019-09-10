@@ -8,7 +8,7 @@ def generate():
     cfg = pick(config, 'connectors.slack')
 
     client_id = pick(cfg, 'client_id')
-    client_secret = pick(cfg, 'secret')
+    client_secret = pick(cfg, 'client_secret')
     oauth_scope = "users:read,users:read.email"
     print("Go to http://localhost:8888/begin_auth")
 
