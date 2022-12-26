@@ -7,4 +7,4 @@ py-trello==0.14.0
 PyGithub==1.43.4
 slackclient==1.3.0
 twine==1.12.1
-wheel==0.33.6
+wheel==0.38.1
